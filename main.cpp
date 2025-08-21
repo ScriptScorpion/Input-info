@@ -48,7 +48,7 @@ std::string char_to_word(unsigned char c) {
     }
 }
 
-void report(const int *arr, const int size) {
+void report(const int arr[], const int size) {
     uint8_t num {};
     for (int i = 0; i < size; ++i) {
         num = num * 10 + arr[i];
@@ -77,16 +77,16 @@ int main() {
     short counter {};
     std::cout << "Enter value: ";
     std::cin >> input;
-    int *dArr = new int[input.length()];
+    int Arr[input.length()];
     for (char x : input) {
         if (std::isdigit(x)) {
-            dArr[counter] = x - '0';
+            Arr[counter] = x - '0';
             counter++;
         }
     }
     if (counter == input.length()) {
         // for numbers
-        report(dArr, input.length());
+        report(Arr, input.length());
     }
     else if (counter == 0) {
         // for strings
@@ -95,9 +95,7 @@ int main() {
     else {
         std::cerr << "Enter only 1 kind of data! \n";
         std::cerr.flush();
-        delete[] dArr;
         return -1;
     }
-    delete[] dArr;
     return 0;
 }
