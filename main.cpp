@@ -80,7 +80,7 @@ int main() {
     int Arr[input.length()];
     for (char x : input) {
         if (std::isdigit(x)) {
-            Arr[counter] = x - '0';
+            Arr[counter] = x - '0'; // converts char to int
             counter++;
         }
     }
