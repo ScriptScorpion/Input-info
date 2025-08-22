@@ -1,8 +1,25 @@
 #include <iostream>
 #include <cstdint>
 #include <cctype>
-#include <bitset>
-    
+
+std::string to_bin (unsigned char c) {
+    std::string binary = "";
+    while (c > 0) {
+        binary = std::to_string((int)c % 2) + binary;
+        c = c / 2;
+    }
+    return binary.empty() ? "0" : binary;
+}
+
+std::string to_bin(int n) {
+    std::string binary = "";
+    while (n > 0) {
+        binary = std::to_string(n % 2) + binary;
+        n = n / 2;
+    }
+    return binary.empty() ? "0" : binary;
+}
+
 std::string char_to_word(unsigned char c) {
     switch (c) {
         case 0: return "NULL";
@@ -60,14 +77,14 @@ void report(const int arr[], const int size) {
         std::cout << char_to_word((unsigned char)num) << " - ASCII \n";
     }
     std::cout << std::uppercase << std::hex << (int)num << " - HEX \n";
-    std::cout << std::bitset<8>(num) << " - Binary \n";
+    std::cout << to_bin(num) << " - Binary \n";
 }
 
 void report(const std::string str) {
     for (unsigned char x : str) {
         printf("%c - Character \n", x);
         printf("%d - Number(ASCII) \n",(unsigned int)x);
-        std::cout << std::bitset<8>(x) << " - Binary \n";
+        std::cout << to_bin(x) << " - Binary \n";
         printf("\n");
     }
 }
