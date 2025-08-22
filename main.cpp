@@ -1,6 +1,6 @@
-#include <iostream>
-#include <cstdint>
-#include <cctype>
+#include <iostream> // for printing output
+#include <cstdint> // for type detection
+#include <cctype> // for type detection
 
 std::string to_bin (unsigned char c) {
     std::string binary = "";
@@ -10,7 +10,6 @@ std::string to_bin (unsigned char c) {
     }
     return binary.empty() ? "0" : binary;
 }
-
 std::string to_bin(int n) {
     std::string binary = "";
     while (n > 0) {
@@ -19,6 +18,7 @@ std::string to_bin(int n) {
     }
     return binary.empty() ? "0" : binary;
 }
+
 
 std::string char_to_word(unsigned char c) {
     switch (c) {
@@ -78,6 +78,7 @@ void report(const int arr[], const int size) {
     }
     std::cout << std::uppercase << std::hex << (int)num << " - HEX \n";
     std::cout << to_bin(num) << " - Binary \n";
+    printf("\n");
 }
 
 void report(const std::string str) {
